@@ -1,0 +1,10 @@
+body{
+    font-size: 25px;
+}
+.done {
+    color: red;
+    text-decoration: line-through;  
+}
+.undone {
+    color: #212529;
+}
