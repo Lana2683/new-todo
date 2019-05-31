@@ -1,14 +1,35 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent } from 'react';
+import { Done } from './Done';
+import { Close } from './Close'
 
 class TodoListItem extends PureComponent {
     render () {
-      var todoClass = this.props.todoItem.done ? 
-          'done':'undone' ;
+      const {
+        todoItem: {
+          done,
+          id,
+          label
+        },
+        onClickDone,
+        onClickDelete
+      } = this.props
+      
       return(
-        <tr className={todoClass}>
-                <td><button  onClick={()=>this.props.onClickDone(this.props.todoItem.id)}>&#10004;</button></td>
-                <td>{this.props.todoItem.label}</td>
-                <td><a href="#" className="button u-pull-right" onClick={()=>this.props.onClickClose(this.props.todoItem.id)}>&#10006;</a></td>       
+        <tr className={done ? 'done' : 'undone'}>
+            <td><button  onClick={()=>onClickDone(id)}>
+                  <Done/>
+                </button>
+            </td>
+            <td>
+              {label}
+            </td>
+            <td><a 
+                  href="#" 
+                  className="button u-pull-right" 
+                  onClick={onClickDelete}>
+                  <Close/>
+                </a>
+            </td>       
         </tr> 
       );
     }

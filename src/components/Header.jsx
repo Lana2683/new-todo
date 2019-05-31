@@ -1,24 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { NBSP } from './NBSP'
 
 function Header() {
   return (
-    <header style={headerStyle}>
-      <Link style={linkStyle} to="/">Todo</Link> | <Link style={linkStyle} to="/home">Home</Link>
+    <header className='container'>
+      <Link className='linkstyle' to="/todo-page">
+        Todo
+      </Link> 
+      <NBSP/>
+      | 
+      <NBSP/>
+      <Link className='linkstyle' to="/home-page">
+        Home
+      </Link>
     </header>
   )
-}
-
-const headerStyle = {
-  background: '#1EAEDB',
-  color: '#fff',
-  textAlign: 'center',
-  padding: '10px'
-}
-
-const linkStyle = {
-  color: '#fff',
-  textDecoration: 'none'
 }
 
 export default Header;

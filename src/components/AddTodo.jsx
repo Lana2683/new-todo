@@ -1,26 +1,29 @@
 import React, { Component } from 'react';
 
-// TODO: 
-// 1. nextId по умному
-// 2. handleChangeDone 
-// 3. handleChangeDelete
-// 4. Components
-// 5. по enter
-// 6. Линтеры
-
 class AddTodo extends Component {
   render () {
+    const {
+      currentLabel,
+      handleChangeLabel,
+      onPressEnter,
+      handleAddTodo
+    } = this.props
     return (
       <div className="u-full-width">
-        <h3>Todo List</h3>
-        <input type="text" id="itemName" className="form-control u-full-width" placeholder="add a new todo..."
-          value={this.props.currentLabel}
-          onChange={this.props.handleChangeLabel}
-          onKeyUp={this.props.pressEnter}
+        <h4>Todo List</h4>
+        <input 
+          type="text" 
+          className="form-control u-full-width" 
+          placeholder="add a new todo..."
+          value={currentLabel}
+          onChange={handleChangeLabel}
+          onKeyUp={onPressEnter}
         />
-        <button className="button-primary" onClick={this.props.handleAddTodo}>Add</button> 
-        <table  className="u-full-width" id="todoList">
-        </table>
+        <button 
+          className="button-primary" 
+          onClick={handleAddTodo}>
+            Add
+        </button> 
       </div>
     );   
   }
